@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.trancecode</groupId>
+    <artifactId>trancecode</artifactId>
+    <version>1</version>
+  </parent>
+
+  <groupId>org.trancecode</groupId>
+  <artifactId>maven-external-artifacts</artifactId>
+  <version>SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>${project.artifactId}</name>
+
+  <!-- ===================================================================== -->
+
+  <inceptionYear>2010</inceptionYear>
+
+  <ciManagement>
+    <system>Hudson</system>
+    <url>http://www.trancecode.org/hudson/job/maven-external-artifacts</url>
+  </ciManagement>
+
+  <scm>
+    <connection>https://bitbucket.org/hquiroz/maven-external-artifacts</connection>
+    <developerConnection>scm:hg:ssh://hg@bitbucket.org/hquiroz/maven-external-artifacts</developerConnection>
+    <url>https://bitbucket.org/hquiroz/maven-external-artifacts</url>
+  </scm>
+
+  <!-- ===================================================================== -->
+
+  <modules>
+    <module>saxon-he-9.2.1.2</module>
+  </modules>
+
+  <!-- ===================================================================== -->
+
+  <repositories>
+
+    <repository>
+      <id>releases.trancecode.org</id>
+      <url>http://maven.trancecode.org/releases/</url>
+    </repository>
+
+  </repositories>
+
+  <!-- ===================================================================== -->
+
+  <distributionManagement>
+
+    <repository>
+      <id>s3.trancecode.org</id>
+      <url>s3://maven.trancecode.org/external</url>
+    </repository>
+
+  </distributionManagement>
+
+  <!-- ===================================================================== -->
+
+</project>
