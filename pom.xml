@@ -34,8 +34,14 @@
 
   <!-- ===================================================================== -->
 
+  <properties>
+    <module.saxon-he.version>9.3.0.4</module.saxon-he.version>
+  </properties>
+
+  <!-- ===================================================================== -->
+
   <modules>
-    <module>saxon-he-9.2.1.2</module>
+    <module>saxon/saxon-he-${module.saxon-he.version}</module>
   </modules>
 
   <!-- ===================================================================== -->
