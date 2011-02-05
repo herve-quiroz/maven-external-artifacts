@@ -8,23 +8,23 @@
 
   <parent>
     <groupId>org.trancecode</groupId>
-    <artifactId>saxon-maven</artifactId>
-    <version>SNAPSHOT</version>
+    <artifactId>maven-external-artifacts</artifactId>
+    <version>1</version>
   </parent>
 
   <groupId>net.sf.saxon</groupId>
   <artifactId>saxon-he</artifactId>
-  <version>9.3.0.4</version>
+  <version>9.2.1.2</version>
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
 
   <!-- ===================================================================== -->
 
   <properties>
-    <saxon.version>9.3.0.4</saxon.version>
-    <saxon.version.tag>9-3-0-4</saxon.version.tag>
-    <saxon.binary.url>http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.3/saxonhe${saxon.version.tag}j.zip</saxon.binary.url>
-    <saxon.source.url>http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.3/saxon${saxon.version.tag}source.zip</saxon.source.url>
+    <saxon.version>9.2.1.2</saxon.version>
+    <saxon.version.tag>9-2-1-2</saxon.version.tag>
+    <saxon.binary.url>http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.2/saxonhe${saxon.version.tag}j.zip</saxon.binary.url>
+    <saxon.source.url>http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.2/saxon${saxon.version.tag}source.zip</saxon.source.url>
   </properties>
 
   <!-- ===================================================================== -->
