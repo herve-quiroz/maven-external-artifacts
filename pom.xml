@@ -8,7 +8,7 @@
   <parent>
     <groupId>org.trancecode</groupId>
     <artifactId>trancecode</artifactId>
-    <version>2</version>
+    <version>9</version>
   </parent>
 
   <groupId>org.trancecode</groupId>
@@ -28,7 +28,7 @@
 
   <scm>
     <connection>https://bitbucket.org/hquiroz/maven-external-artifacts</connection>
-    <developerConnection>scm:hg:ssh://hg@bitbucket.org/hquiroz/maven-external-artifacts</developerConnection>
+    <developerConnection>scm:hg:file:///${basedir}</developerConnection>
     <url>https://bitbucket.org/hquiroz/maven-external-artifacts</url>
   </scm>
 
@@ -50,7 +50,7 @@
 
     <repository>
       <id>releases.trancecode.org</id>
-      <url>http://maven.trancecode.org/releases/</url>
+      <url>http://maven.trancecode.org/repository/releases/</url>
     </repository>
 
   </repositories>
@@ -60,8 +60,8 @@
   <distributionManagement>
 
     <repository>
-      <id>s3.trancecode.org</id>
-      <url>s3://maven.trancecode.org/external</url>
+      <id>ssh.trancecode.org</id>
+      <url>scpexe://maven@maven.trancecode.org/home/maven/repository/external/</url>
     </repository>
 
   </distributionManagement>
