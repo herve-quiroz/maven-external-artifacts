@@ -6,19 +6,19 @@
 
   <!-- ===================================================================== -->
 
-  <groupId>net.sf.saxon</groupId>
-  <artifactId>saxon-he</artifactId>
-  <version>9.2.1.2</version>
+  <groupId>com.xmlcalabash</groupId>
+  <artifactId>calabash</artifactId>
+  <version>0.9.40</version>
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
 
   <!-- ===================================================================== -->
 
   <properties>
-    <saxon.version>9.2.1.2</saxon.version>
-    <saxon.version.tag>9-2-1-2</saxon.version.tag>
-    <saxon.binary.url>http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.2/saxonhe${saxon.version.tag}j.zip</saxon.binary.url>
-    <saxon.source.url>http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.2/saxon${saxon.version.tag}source.zip</saxon.source.url>
+    <calabash.version>9.3.0.4</calabash.version>
+    <calabash.version.tag>9-3-0-4</calabash.version.tag>
+    <calabash.binary.url>http://xmlcalabash.com/download/calabash-0.9.40.zip</calabash.binary.url>
+    <calabash.source.url>https://github.com/ndw/xmlcalabash1/zipball/v0.9.40</calabash.source.url>
   </properties>
 
   <!-- ===================================================================== -->
@@ -52,21 +52,19 @@
             <configuration>
               <tasks>
 
-                <property name="saxon.binary.file" value="${java.io.tmpdir}/saxon/${saxon.version}/binary.zip" />
-                <property name="saxon.source.file" value="${java.io.tmpdir}/saxon/${saxon.version}/source.zip" />
-                <mkdir dir="${java.io.tmpdir}/saxon/${saxon.version}" />
+                <property name="calabash.binary.file" value="${java.io.tmpdir}/calabash/${calabash.version}/binary.zip" />
+                <property name="calabash.source.file" value="${java.io.tmpdir}/calabash/${calabash.version}/source.zip" />
+                <mkdir dir="${java.io.tmpdir}/calabash/${calabash.version}" />
 
                 <mkdir dir="${project.build.directory}/download" />
-                <get dest="${saxon.binary.file}" src="${saxon.binary.url}" usetimestamp="true" />
-                <get dest="${saxon.source.file}" src="${saxon.source.url}" usetimestamp="true" />
+                <get dest="${calabash.binary.file}" src="${calabash.binary.url}" usetimestamp="true" />
+                <get dest="${calabash.source.file}" src="${calabash.source.url}" usetimestamp="true" />
 
                 <mkdir dir="${project.build.directory}/download/binary" />
-                <unzip dest="${project.build.directory}/download/binary" src="${saxon.binary.file}" />
-                <mkdir dir="${project.build.directory}/classes" />
-                <copy tofile="${project.build.directory}/classes" file="${project.build.directory}/download/binary/saxon9he.jar" />
+                <unzip dest="${project.build.directory}/download/binary" src="${calabash.binary.file}" />
 
                 <mkdir dir="${basedir}/target/src" />
-                <unzip dest="${basedir}/target/src" src="${saxon.source.file}" />
+                <unzip dest="${basedir}/target/src" src="${calabash.source.file}" />
 
               </tasks>
             </configuration>
@@ -81,7 +79,7 @@
             <configuration>
               <tasks>
 
-                <copy file="${project.build.directory}/download/binary/saxon9he.jar"
+                <copy file="${project.build.directory}/download/binary/calabash-${project.version}/calabash.jar"
                   tofile="${project.build.directory}/${project.artifactId}-${project.version}.${project.packaging}"
                   overwrite="true" verbose="true" />
 

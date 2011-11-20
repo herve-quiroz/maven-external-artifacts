@@ -6,12 +6,6 @@
 
   <!-- ===================================================================== -->
 
-  <parent>
-    <groupId>org.trancecode</groupId>
-    <artifactId>maven-external-artifacts</artifactId>
-    <version>1</version>
-  </parent>
-
   <groupId>net.sf.saxon</groupId>
   <artifactId>saxon-he</artifactId>
   <version>9.3.0.4</version>
@@ -29,9 +23,30 @@
 
   <!-- ===================================================================== -->
 
+  <distributionManagement>
+
+    <repository>
+      <id>ssh.trancecode.org</id>
+      <url>scpexe://maven@maven.trancecode.org/home/maven/repository/external/</url>
+    </repository>
+
+  </distributionManagement>
+
+  <!-- ===================================================================== -->
+
   <build>
 
     <sourceDirectory>${basedir}/target/src</sourceDirectory>
+
+    <extensions>
+
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh-external</artifactId>
+        <version>1.0</version>
+      </extension>
+
+    </extensions>
 
     <plugins>
 
