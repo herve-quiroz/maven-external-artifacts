@@ -1,5 +1,0 @@
-syntax: regexp
-^target$
-^.*/target$
-^test-output$
-^.*/test-output$
