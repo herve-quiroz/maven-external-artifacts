@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w5.org/2001/XMLSchema-instance">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- ===================================================================== -->
+
+  <groupId>net.sf.saxon</groupId>
+  <artifactId>saxon-he</artifactId>
+  <version>9.3.0.11</version>
+  <packaging>jar</packaging>
+  <name>${project.artifactId}</name>
+
+  <!-- ===================================================================== -->
+
+  <properties>
+    <saxon.version>${project.version}</saxon.version>
+    <saxon.version.tag>9-3-0-11</saxon.version.tag>
+    <saxon.binary.url>http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.3/saxonhe${saxon.version.tag}j.zip</saxon.binary.url>
+    <saxon.source.url>http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.3/saxon${saxon.version.tag}source.zip</saxon.source.url>
+  </properties>
+
+  <!-- ===================================================================== -->
+
+  <distributionManagement>
+
+    <repository>
+      <id>ssh.trancecode.org</id>
+      <url>scpexe://maven@maven.trancecode.org/home/maven/repository/external/</url>
+    </repository>
+
+  </distributionManagement>
+
+  <!-- ===================================================================== -->
+
+  <build>
+
+    <sourceDirectory>${basedir}/target/src</sourceDirectory>
+
+    <extensions>
+
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh-external</artifactId>
+        <version>1.0</version>
+      </extension>
+
+    </extensions>
+
+    <plugins>
+
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+
+          <execution>
+            <id>download</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+
+                <property name="saxon.binary.file" value="${java.io.tmpdir}/saxon/${saxon.version}/binary.zip" />
+                <property name="saxon.source.file" value="${java.io.tmpdir}/saxon/${saxon.version}/source.zip" />
+                <mkdir dir="${java.io.tmpdir}/saxon/${saxon.version}" />
+
+                <mkdir dir="${project.build.directory}/download" />
+                <get dest="${saxon.binary.file}" src="${saxon.binary.url}" usetimestamp="true" />
+                <get dest="${saxon.source.file}" src="${saxon.source.url}" usetimestamp="true" />
+
+                <mkdir dir="${project.build.directory}/download/binary" />
+                <unzip dest="${project.build.directory}/download/binary" src="${saxon.binary.file}" />
+                <mkdir dir="${project.build.directory}/classes" />
+                <copy tofile="${project.build.directory}/classes" file="${project.build.directory}/download/binary/saxon9he.jar" />
+
+                <mkdir dir="${basedir}/target/src" />
+                <unzip dest="${basedir}/target/src" src="${saxon.source.file}" />
+
+              </tasks>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+
+                <copy file="${project.build.directory}/download/binary/saxon9he.jar"
+                  tofile="${project.build.directory}/${project.artifactId}-${project.version}.${project.packaging}"
+                  overwrite="true" verbose="true" />
+
+              </tasks>
+            </configuration>
+          </execution>
+
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
+  </build>
+
+  <!-- ===================================================================== -->
+
+</project>

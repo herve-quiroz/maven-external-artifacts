@@ -29,7 +29,7 @@
   <!-- ===================================================================== -->
 
   <properties>
-    <module.saxon-he.version>9.3.0.4</module.saxon-he.version>
+    <module.saxon-he.version>9.3.0.11</module.saxon-he.version>
     <module.calabash.version>0.9.40</module.calabash.version>
   </properties>
 
