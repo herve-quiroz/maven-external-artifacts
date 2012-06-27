@@ -6,6 +6,12 @@
 
   <!-- ===================================================================== -->
 
+  <parent>
+    <groupId>org.trancecode</groupId>
+    <artifactId>maven-external-artifacts</artifactId>
+    <version>1</version>
+  </parent>
+
   <groupId>net.sf.saxon</groupId>
   <artifactId>saxon-he</artifactId>
   <version>9.2.1.2</version>

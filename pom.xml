@@ -5,13 +5,17 @@
 
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.trancecode</groupId>
+    <artifactId>trancecode</artifactId>
+    <version>12</version>
+  </parent>
+
   <groupId>org.trancecode</groupId>
   <artifactId>maven-external-artifacts</artifactId>
   <version>1</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
-
-  <!-- ===================================================================== -->
 
   <inceptionYear>2010</inceptionYear>
 
@@ -26,43 +30,23 @@
     <url>https://bitbucket.org/hquiroz/maven-external-artifacts</url>
   </scm>
 
-  <!-- ===================================================================== -->
-
-  <properties>
+    <properties>
     <module.saxon-he.version>9.3.0.11</module.saxon-he.version>
     <module.calabash.version>0.9.40</module.calabash.version>
   </properties>
-
-  <!-- ===================================================================== -->
 
   <modules>
     <module>saxon-he-${module.saxon-he.version}</module>
     <module>calabash-${module.calabash.version}</module>
   </modules>
 
-  <!-- ===================================================================== -->
-
   <distributionManagement>
 
     <repository>
-      <id>ssh.trancecode.org</id>
-      <url>scpexe://maven@maven.trancecode.org/home/maven/repository/external/</url>
+      <id>s3.trancecode.org</id>
+      <url>s3://maven.trancecode.org/external/</url>
     </repository>
 
   </distributionManagement>
-
-  <!-- ===================================================================== -->
-
-  <build>
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ssh-external</artifactId>
-        <version>1.0</version>
-      </extension>
-    </extensions>
-  </build>
-
-  <!-- ===================================================================== -->
 
 </project>

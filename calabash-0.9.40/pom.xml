@@ -6,6 +6,12 @@
 
   <!-- ===================================================================== -->
 
+  <parent>
+    <groupId>org.trancecode</groupId>
+    <artifactId>maven-external-artifacts</artifactId>
+    <version>1</version>
+  </parent>
+
   <groupId>com.xmlcalabash</groupId>
   <artifactId>calabash</artifactId>
   <version>0.9.40</version>
@@ -26,16 +32,6 @@
   <build>
 
     <sourceDirectory>${basedir}/target/src</sourceDirectory>
-
-    <extensions>
-
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ssh-external</artifactId>
-        <version>1.0</version>
-      </extension>
-
-    </extensions>
 
     <plugins>
 
