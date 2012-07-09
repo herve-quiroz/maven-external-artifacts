@@ -30,12 +30,14 @@
     <url>https://bitbucket.org/hquiroz/maven-external-artifacts</url>
   </scm>
 
-    <properties>
+  <properties>
+    <module.asciidoc.version>8.6.7</module.asciidoc.version>
     <module.saxon-he.version>9.3.0.11</module.saxon-he.version>
     <module.calabash.version>0.9.40</module.calabash.version>
   </properties>
 
   <modules>
+    <module>asciidoc-${module.asciidoc.version}</module>
     <module>saxon-he-${module.saxon-he.version}</module>
     <module>calabash-${module.calabash.version}</module>
   </modules>
