@@ -42,6 +42,22 @@
     <module>calabash-${module.calabash.version}</module>
   </modules>
 
+  <repositories>
+
+    <repository>
+      <id>releases.trancecode.org</id>
+      <name>TranceCode repository for release artifacts</name>
+      <url>http://maven.trancecode.org/releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+
+  </repositories>
+
   <distributionManagement>
 
     <repository>
